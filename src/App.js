@@ -10,7 +10,7 @@ class App extends Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#home">Top Coins</a>
+              <a href="#">Top Coins</a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
