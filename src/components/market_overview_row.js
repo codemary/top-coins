@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import LiquidityAnalysis from './liquidity_analysis';
-import { resolveComponents } from 'uri-js';
-
+import PropTypes from 'prop-types';
 
 class MarketOverviewRow extends Component {
     render() {
@@ -17,6 +15,17 @@ class MarketOverviewRow extends Component {
             </tr>
         );
     }
+}
+
+MarketOverviewRow.propTypes = {
+    data: PropTypes.shape({
+        rank: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        price_change_24h: PropTypes.number.isRequired,
+        market_cap: PropTypes.number.isRequired,
+        volume_24h: PropTypes.number.isRequired
+    })
 }
 
 export default MarketOverviewRow;
