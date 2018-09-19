@@ -6,7 +6,7 @@ import LiquidityAnalysis from './liquidity_analysis';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({adapter: new Adapter()});
 
-test('Check if Liquidity Component accepts props', () => {
+test('Check if LiquidityAnalysis Component accepts props', () => {
     let data1 = [{coin: "bitcon", x:1,y: 2, z: 3}];
     let data2 = [{coin: "mycoin", x:1,y: 2, z: 3}];
     const wrapper = mount(<LiquidityAnalysis data={data1} />);

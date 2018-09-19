@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Table} from 'react-bootstrap';
 import MarketOverviewRow from './market_overview_row';
+import { PropTypes } from 'prop-types';
 
 // Market Overview Table
 class MarketOverview extends Component {
@@ -32,6 +33,17 @@ class MarketOverview extends Component {
 			</div>
         );
     }
+}
+
+MarketOverview.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape({
+        rank: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        price_change_24h: PropTypes.number.isRequired,
+        market_cap: PropTypes.number.isRequired,
+        volume_24h: PropTypes.number.isRequired
+        })).isRequired,
 }
 
 export default MarketOverview;
