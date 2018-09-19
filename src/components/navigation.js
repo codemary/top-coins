@@ -16,12 +16,21 @@ class Navigation extends Component {
         let liquidity_data = [];
         let market_overview_data = [];
 
-        fetch('https://api.coinmarketcap.com/v2/ticker/?limit=' + this.state.limit)
-            .then(response => response.json())
+        fetch('https://api.coinmarketcap.com/v2/ticker/?&limit=' + this.state.limit)
+        .then(response => response.json())
             .then(ticker_data => {
-                // transform api data
+
+                // transform coin api data
+                let coin_data = []
                 Object.keys(ticker_data.data).forEach(key => {
                     let val = ticker_data.data[key];
+                    coin_data.push(val)
+                });
+
+                // sort coins by rank
+                let coin_data_sorted = coin_data.sort((x,y)=>x.rank-y.rank)
+
+                coin_data_sorted.forEach(val => {
                     let quote = val.quotes.USD;
                     let dot = {
                         coin: val.name,
@@ -42,6 +51,7 @@ class Navigation extends Component {
                     // push item to market_overview
                     market_overview_data.push(market_overview)
                 });
+
 
                 this.setState({
                     market_overview_data: market_overview_data,
