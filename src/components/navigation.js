@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import MarketOverview from './market_overview';
 import LiquidityAnalysis from './liquidity_analysis';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -12,7 +12,7 @@ class Navigation extends Component {
         limit: 10,
     }
 
-    componentDidMount() {
+    fetchTickerData = () => {
         let liquidity_data = [];
         let market_overview_data = [];
 
@@ -48,11 +48,21 @@ class Navigation extends Component {
                     liquidity_data: liquidity_data,
                 })
             });
-
-
-
-
     }
+
+    componentDidMount() {
+       this.fetchTickerData()
+    }
+
+    handleSelect = (event) => {
+       this.setState({
+           limit: event.target.value,
+       },()=> {
+           this.fetchTickerData()
+       })
+    }
+
+
     render() {
         return (
             <div>
@@ -76,11 +86,16 @@ class Navigation extends Component {
                                 </NavItem>
                             </Nav>
                             <Nav pullRight>
-                                <NavDropdown eventKey={3} title="Coin Limit" id="basic-nav-dropdown">
-                                    <MenuItem eventKey={3.1}>10</MenuItem>
-                                    <MenuItem eventKey={3.2}>50</MenuItem>
-                                    <MenuItem eventKey={3.3}>all</MenuItem>
-                                </NavDropdown>
+                            <NavItem>
+                                <p >Coin Limit</p>
+                            </NavItem>
+                            <NavItem>
+                                <select onChange={this.handleSelect} value={this.state.limit}>
+                                    <option value="10">10</option>
+                                    <option value="50">50</option>
+                                    <option value="all">all</option>
+                                </select>
+                                </NavItem>
                             </Nav>
                         </Navbar>
                         <Route exact path="/" render={(props) => <MarketOverview {...props} data={this.state.market_overview_data} />} />
