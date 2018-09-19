@@ -21,7 +21,12 @@ class Navigation extends Component {
         Object.keys(ticker_data.data).forEach(key => {
             let val = ticker_data.data[key];
             let quote =  val.quotes.USD;
-            let dot = { x: quote.market_cap, y: quote.volume_24h, z: quote.percent_change_24h };
+            let dot = {
+                coin: val.name,
+                x: quote.market_cap, 
+                y: quote.volume_24h, 
+                z: quote.percent_change_24h 
+            };
             let market_overview = {
                 rank: val.rank, 
                 name: val.name, 

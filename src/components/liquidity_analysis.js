@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ResponsiveContainer, ScatterChart, CartesianGrid, XAxis, YAxis, ZAxis, Tooltip, Legend, Scatter } from 'recharts';
+import CustomTooltip from './custom_tooltip';
 
 class LiquidityAnalysis extends Component {
     render() {
@@ -10,7 +11,10 @@ class LiquidityAnalysis extends Component {
                     <XAxis dataKey="x" name="Market Cap" />
                     <YAxis dataKey="y" name="Volume" />
                     <ZAxis dataKey="z" range={[64, 144]} name="Price Change" />
-                    <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                    <Tooltip 
+                        cursor={{ strokeDasharray: '3 3' }} 
+                        content={<CustomTooltip/>}
+                    />
                     <Legend />
                     
                     <Scatter name="Market Cap" data={this.props.data} fill="#8884d8" />
