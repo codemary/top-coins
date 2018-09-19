@@ -7,10 +7,10 @@ class LiquidityAnalysis extends Component {
     render() {
         return (
             <ResponsiveContainer aspect={3}>
-                <ScatterChart margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
+                <ScatterChart margin={{ top: 20, right: 50, left: 100, bottom: 50 }}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="x" name="Market Cap" />
-                    <YAxis dataKey="y" name="Volume" />
+                    <XAxis label={{ value: 'MARKET CAP', position: 'bottom',offset: 30 }} dataKey="x" name="Market Cap" />
+                    <YAxis label={{ value: 'VOLUME', angle: -90, position: 'left',offset: 50 }} dataKey="y" name="Volume" />
                     <ZAxis dataKey="z" range={[64, 144]} name="Price Change" />
                     <Tooltip
                         cursor={{ strokeDasharray: '3 3' }}
@@ -18,7 +18,7 @@ class LiquidityAnalysis extends Component {
                     />
                     <Legend />
 
-                    <Scatter name="Market Cap" data={this.props.data} fill="#8884d8" />
+                    <Scatter name="Coin" data={this.props.data} fill="#8884d8" />
                 </ScatterChart>
             </ResponsiveContainer>
         );
