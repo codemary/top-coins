@@ -31,9 +31,9 @@ class Navigation extends Component {
                 rank: val.rank, 
                 name: val.name, 
                 price: quote.price, 
-                price_change_24h: quote.price_change_24h, 
+                price_change_24h: quote.percent_change_24h, 
                 market_cap: quote.market_cap, 
-                volume_24h: quote.percent_change_24h
+                volume_24h: quote.volume_24h
             } 
             // push item to liquidity_data
             liquidity_data.push(dot)
