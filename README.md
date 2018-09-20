@@ -2,7 +2,7 @@
 
 Welcome to Top Coins webapp. 
 
-The app aims at presenting top coins data through a table and a Scatter Plot Chart. 
+The app aims an analysis of crypto assets through a table and a Scatter Plot Chart. 
 
 ## Install, Test & Run
 
@@ -11,6 +11,13 @@ $ yarn install
 $ yarn start
 $ yarn test
 ```
+
+## Problem and Solution
+
+The task is to develop Top Coins webapp which analysis crypto assets. The app should fetch data from open source ticker API. This data should further be presented through a table and a Scatter Plot Chart on different pages. The pages should be controlled through a navigation bar.
+
+### Functional Requirements
+
 
 ## Component Design
 
@@ -30,7 +37,7 @@ Components for customization and code simplicity:
 
 ## Technical Choices
 
-__Frontend Framework__: As mentioned in the requirements, I have used React to build this app.
+__Frontend Framework__: As mentioned in the requirements, I have used React to build this app. Since this app requires limited functionalities and fewer inter-component interactions, React(a view library) seems to be a good choice over AngularJS(which is a full framework). React provides an easier way to think and design UI.
 
 __UI Framework__: react-bootstrap has been used to make the app responsible. In some places I have written my own css classes to get the desired results and avoid conflicts. 
 
