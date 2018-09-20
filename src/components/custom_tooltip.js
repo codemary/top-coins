@@ -8,7 +8,7 @@ class CustomTooltip extends Component {
             const { payload } = this.props;
             const info = payload[0].payload;
             return (
-                <div style={{padding: 10, backgroundColor:"#DDDCE2", fontSize: 11}}>
+                <div style={{padding: 10, backgroundColor:"#7E57C2", fontSize: 12, color:'white'}}>
                     <p>Name: {info.coin}</p>
                     <p>Market Cap: ${info.x}</p>
                     <p>Volume: ${info.y}</p>

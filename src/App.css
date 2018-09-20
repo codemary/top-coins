@@ -58,6 +58,8 @@ select::-ms-expand {
   background-color: #673AB7;
 }
 
-.customLink {
-  color: white;
+.activeNavLink {
+  font-weight: 'bold';
+  color: 'red';
 }
+

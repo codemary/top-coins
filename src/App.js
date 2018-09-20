@@ -3,7 +3,7 @@ import './App.css';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import MarketOverview from './components/market_overview';
 import LiquidityAnalysis from './components/liquidity_analysis';
-import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 // fix issue https://stackoverflow.com/questions/40126367/jest-typeerror-network-request-failed-for-fetch/40127203
 import fetch from 'isomorphic-fetch';
 
@@ -12,7 +12,7 @@ class App extends Component {
 	state = {
 		market_overview_data: [],
 		liquidity_data: [],
-		limit: 10,
+		limit: 10
 	}
 
 	fetchTickerData = () => {
@@ -67,6 +67,7 @@ class App extends Component {
 		this.fetchTickerData()
 	}
 
+
 	handleSelect = (event) => {
 		this.setState({
 			limit: event.target.value,
@@ -76,7 +77,9 @@ class App extends Component {
 	}
 
 
+
 	render() {
+
 		return (
 			<div>
 				<Router>
@@ -85,23 +88,43 @@ class App extends Component {
 						<Navbar>
 							<Navbar.Header>
 								<Navbar.Brand>
-									<a style={{color:"white"}} href="/">Top Coins</a>
+									<a style={{ color: "white" }} href="/">Top Coins</a>
 								</Navbar.Brand>
 								<Navbar.Toggle />
 							</Navbar.Header>
 							<Nav>
 								{/* fix nested a tag issue: https://stackoverflow.com/questions/42561137/link-cannot-appear-as-a-descendant-of-a-link */}
-								<NavItem componentClass='span' eventKey={1} href="#">
-									<Link  className="customLink" to="/">Market Overview</Link>
+								<NavItem componentClass='span' eventKey={1}>
+									<NavLink
+										style={{
+											color: '#b2bec3',
+										}}
+										activeStyle={{
+											fontSize: '16px',
+											fontFamily: 'sans-serif',
+											color: 'white'
+										}}
+									exact
+									to="/">Market Overview</NavLink>
 								</NavItem>
-								<NavItem componentClass='span' eventKey={2} href="#">
-									<Link  className="customLink" to="/liquidity">Liquidity Analysis</Link>
+								<NavItem componentClass='span' eventKey={2}>
+									<NavLink 
+										style={{
+											color: '#b2bec3',
+										}}
+										activeStyle={{
+											fontSize: '16px',
+											fontFamily: 'sans-serif',
+											color: 'white'
+										}}
+									exact
+									to="/liquidity">Liquidity Analysis</NavLink>
 								</NavItem>
 							</Nav>
 							<Nav pullRight>
 								<NavItem disabled>
-									<span style={{color:"white"}} >Coin Limit</span>
-                            	</NavItem>
+									<span style={{ color: "white" }} >Coin Limit</span>
+								</NavItem>
 								<NavItem>
 									<select className="styled-select" onChange={this.handleSelect} value={this.state.limit}>
 										<option value="10">10</option>
