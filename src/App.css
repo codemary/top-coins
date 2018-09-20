@@ -13,3 +13,51 @@
   display: inline-block;
   line-height: 20px;
 }
+
+/* source: https://codepen.io/jamesbarnett/pen/JhHjK */
+
+.styled-select {
+  background: white;
+  border: none;
+  border-radius: 0px;
+  overflow: hidden;
+  position: relative;
+}
+
+.styled-select, .styled-select select { 
+  width: 60px;
+  height: 20px;
+  padding: 0 0 0 5px;
+  
+  /*hide default down arrow in webkit */
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+   appearance: none; 
+   background-image: url('./down_arrow.svg');
+   background-position: center right;
+   background-repeat: no-repeat;
+}
+
+select:focus { 
+  outline: none; 
+}
+
+
+@-moz-document url-prefix(){
+  .styled-select select { 
+    width: 110%; 
+  }
+}
+
+/* hide default down arrow in IE10*/
+select::-ms-expand { 
+  display: none; 
+} 
+
+.navbar {
+  background-color: #673AB7;
+}
+
+.customLink {
+  color: white;
+}

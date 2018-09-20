@@ -3,7 +3,7 @@ import './App.css';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import MarketOverview from './components/market_overview';
 import LiquidityAnalysis from './components/liquidity_analysis';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 // fix issue https://stackoverflow.com/questions/40126367/jest-typeerror-network-request-failed-for-fetch/40127203
 import fetch from 'isomorphic-fetch';
 
@@ -85,25 +85,25 @@ class App extends Component {
 						<Navbar>
 							<Navbar.Header>
 								<Navbar.Brand>
-									<a href="/">Top Coins</a>
+									<a style={{color:"white"}} href="/">Top Coins</a>
 								</Navbar.Brand>
 								<Navbar.Toggle />
 							</Navbar.Header>
 							<Nav>
 								{/* fix nested a tag issue: https://stackoverflow.com/questions/42561137/link-cannot-appear-as-a-descendant-of-a-link */}
 								<NavItem componentClass='span' eventKey={1} href="#">
-									<Link to="/">Market Overview</Link>
+									<Link  className="customLink" to="/">Market Overview</Link>
 								</NavItem>
 								<NavItem componentClass='span' eventKey={2} href="#">
-									<Link to="/liquidity">Liquidity Analysis</Link>
+									<Link  className="customLink" to="/liquidity">Liquidity Analysis</Link>
 								</NavItem>
 							</Nav>
 							<Nav pullRight>
+								<NavItem disabled>
+									<span style={{color:"white"}} >Coin Limit</span>
+                            	</NavItem>
 								<NavItem>
-									Coin Limit
-                            </NavItem>
-								<NavItem>
-									<select onChange={this.handleSelect} value={this.state.limit}>
+									<select className="styled-select" onChange={this.handleSelect} value={this.state.limit}>
 										<option value="10">10</option>
 										<option value="50">50</option>
 										<option value="all">all</option>
