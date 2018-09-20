@@ -68,3 +68,4 @@ Components for customization and code simplicity:
 - Evaluate Redux for state management.
 - Refractor App.js.
 - Use asynchoronous task to update ticker data every _n_ seconds.
+- Add more UI interaction tests.
