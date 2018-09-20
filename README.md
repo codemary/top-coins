@@ -14,10 +14,30 @@ $ yarn test
 
 ## Problem and Solution
 
-The task is to develop Top Coins webapp which analysis crypto assets. The app should fetch data from open source ticker API. This data should further be presented through a table and a Scatter Plot Chart on different pages. The pages should be controlled through a navigation bar.
+The task is to develop Top Coins webapp which analysis crypto assets.
 
 ### Functional Requirements
 
+- The app should consist of a navigation bar with two pages:
+
+    - ```/``` - Market Overview
+    - ```/liquidity``` - Liquidity Analysis
+
+- Select menu inside the navigation bar to chnage the number of coins. It should have a global scope affecting data on both the pages mentioned above.
+
+- Market Overview page should render a table to show real-time data, sorted by rank.
+
+- Liquidity Analysis page should render a Scatter Plot chart to show real-time Market capitalization, volume and absolute price change (24h). 
+
+- The chart should also consist of an interactive tooltip with the above mentioned information along with the coin names.
+
+### Technical Requirements
+
+- Create a frontend that communicates with the ticker API and fetches real-time data.
+
+- The frontend should be intuitive to use.
+
+- Accompany the code with test suite.
 
 ## Component Design
 
@@ -51,4 +71,4 @@ __Testing__: enzyme, react-test-renderer, jest and chai have been used for testi
 - A better visual design.
 - Evaluate Redux for state management.
 - Refractor App.js.
-- Use asynchoronous task to update ticker data every n seconds.
+- Use asynchoronous task to update ticker data every _n_ seconds.
